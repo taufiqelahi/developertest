@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 
 class MemesController extends GetxController {
   var memes = <Memes>[].obs;
-  var filteredMemes = <Memes>[].obs; // Store filtered memes
+  var filteredMemes = <Memes>[].obs;
   var isLoading = true.obs;
 
   final MemesService memesService = MemesService();
@@ -22,10 +22,10 @@ class MemesController extends GetxController {
       MemesModel memesModel = await memesService.fetchMemes();
       if (memesModel.success == true) {
         memes.assignAll(memesModel.data?.memes ?? []);
-        filteredMemes.assignAll(memes); // Initialize filtered list
+        filteredMemes.assignAll(memes);
       }
     } catch (e) {
-      print(e); // Handle error
+      print(e);
     } finally {
       isLoading(false);
     }
@@ -37,7 +37,7 @@ class MemesController extends GetxController {
         memes.where((meme) => meme.name?.toLowerCase().contains(query.toLowerCase()) ?? false).toList(),
       );
     } else {
-      filteredMemes.assignAll(memes); // Reset to original list if query is empty
+      filteredMemes.assignAll(memes);
     }
   }
 }

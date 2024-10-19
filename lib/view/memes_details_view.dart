@@ -18,7 +18,7 @@ class MemesDetailsView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
           leading: IconButton(
-            icon: Icon(Icons.arrow_back),
+            icon: const Icon(Icons.arrow_back),
             onPressed: () {
               controller.clearImage(); // Call the callback to clear the image
               Get.back(); // Go back to the previous screen
@@ -31,8 +31,8 @@ class MemesDetailsView extends StatelessWidget {
         children: [
           controller.imageFile.value != null
               ? Image.file(controller.imageFile.value!)
-              : Text('No image loaded'),
-          SizedBox(height: 20),
+              : const Text('No image loaded'),
+          const SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -40,17 +40,17 @@ class MemesDetailsView extends StatelessWidget {
                 onPressed: controller.imageFile.value != null
                     ? controller.cropImage
                     : null,
-                child: Text('Crop'),
+                child: const Text('Crop'),
               ),
-              SizedBox(width: 10),
+              const SizedBox(width: 10),
             ],
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           ElevatedButton(
             onPressed: controller.imageFile.value != null
                 ? controller.saveImageToGallery
                 : null,
-            child: Text('Save Image'),
+            child: const Text('Save Image'),
           ),
         ],
       )),

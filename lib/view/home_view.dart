@@ -1,6 +1,5 @@
 import 'package:developertest/utlis/label.dart';
 import 'package:developertest/view/memes_details_view.dart';
-import 'package:developertest/view_model/image_editing_controller.dart';
 import 'package:developertest/view_model/memes_view_model_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
@@ -15,7 +14,7 @@ class HomeView extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Memes'),
+        title: const Text('Memes'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -25,25 +24,25 @@ class HomeView extends StatelessWidget {
               onChanged: (value) {
                 memesController.filterMemes(value);
               },
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Search by name',
                 border: OutlineInputBorder(),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             Expanded(
               child: Obx(() {
                 if (memesController.isLoading.value) {
-                  return Center(child: CircularProgressIndicator());
+                  return const Center(child: CircularProgressIndicator());
                 }
 
                 return MasonryGridView.builder(
                   mainAxisSpacing: 8,
                   crossAxisSpacing: 8,
                   itemCount: memesController.filteredMemes.length,
-                  gridDelegate: SliverSimpleGridDelegateWithFixedCrossAxisCount(
+                  gridDelegate: const SliverSimpleGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3, // Number of columns
                     // Spacing between columns
                   ),
@@ -70,7 +69,7 @@ class HomeView extends StatelessWidget {
                                         150, // Set a fixed height for the images
                                     fit: BoxFit.cover,
                                   )
-                                : Placeholder(
+                                : const Placeholder(
                                     fallbackHeight: 150,
                                     fallbackWidth: double.infinity,
                                   ),

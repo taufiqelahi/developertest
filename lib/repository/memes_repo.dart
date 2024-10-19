@@ -9,7 +9,6 @@ class MemesService {
     final response = await http.get(Uri.parse(url));
 
     if (response.statusCode == 200) {
-      print(response);
       return MemesModel.fromJson(json.decode(response.body));
     } else {
       throw Exception('Failed to load memes');

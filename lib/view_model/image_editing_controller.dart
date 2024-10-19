@@ -11,29 +11,24 @@ class ImageEditorController extends GetxController {
   void clearImage() {
     imageFile.value = null;
   }
-  // Method to load an image from a URL
   Future<void> loadImageFromUrl(String url) async {
     try {
-      imageFile.value = null; // Clear the previous image
+      imageFile.value = null;
 
-      // Download the image
       final response = await http.get(Uri.parse(url));
       if (response.statusCode == 200) {
-        // Save the image bytes to a file
-        final directory = Directory.systemTemp; // Use temporary directory
-        final imagePath = '${directory.path}/temp_image_${DateTime.now().millisecondsSinceEpoch}.jpg'; // Unique filename
+        final directory = Directory.systemTemp;
+        final imagePath = '${directory.path}/temp_image_${DateTime.now().millisecondsSinceEpoch}.jpg';
         final file = File(imagePath);
 
-        // Ensure the directory exists
         if (!(await directory.exists())) {
           await directory.create(recursive: true);
         }
 
         await file.writeAsBytes(response.bodyBytes);
 
-        // Check if the file was created successfully
         if (await file.exists()) {
-          imageFile.value = file; // Set the image file
+          imageFile.value = file;
         } else {
           Get.snackbar('Error', 'Failed to save image file.');
         }
@@ -45,7 +40,6 @@ class ImageEditorController extends GetxController {
     }
   }
 
-  // Method to crop the image
   Future<void> cropImage() async {
     if (imageFile.value == null) return;
 
