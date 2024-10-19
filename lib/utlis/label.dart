@@ -41,7 +41,7 @@ class Label extends StatelessWidget {
     decoration: underline ?? TextDecoration.none,
     fontSize: fontSize ?? 14,
     fontWeight: fontWeight ?? FontWeight.normal,
-    color: color ?? AllColors.blue,
+    color: color ?? AllColors.black,
     fontStyle: fontStyle,
     letterSpacing: letterspacing ?? 0.2,
 
