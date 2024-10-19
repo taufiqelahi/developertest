@@ -1,13 +1,12 @@
 import 'package:developertest/model/memes_model.dart';
 import 'package:developertest/utlis/label.dart';
-import 'package:developertest/view_model/image_controller.dart';
+import 'package:developertest/view_model/image_editing_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class ImageEditorScreen extends StatelessWidget {
+class MemesDetailsView extends StatelessWidget {
   final Memes memes;
-final VoidCallback onBack;
-  const ImageEditorScreen({super.key, required this.memes, required this.onBack});
+  const MemesDetailsView({super.key, required this.memes, });
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +20,7 @@ final VoidCallback onBack;
           leading: IconButton(
             icon: Icon(Icons.arrow_back),
             onPressed: () {
-              onBack(); // Call the callback to clear the image
+              controller.clearImage(); // Call the callback to clear the image
               Get.back(); // Go back to the previous screen
             },
           ),

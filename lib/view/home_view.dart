@@ -1,6 +1,6 @@
 import 'package:developertest/utlis/label.dart';
 import 'package:developertest/view/memes_details_view.dart';
-import 'package:developertest/view_model/image_controller.dart';
+import 'package:developertest/view_model/image_editing_controller.dart';
 import 'package:developertest/view_model/memes_view_model_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
@@ -51,15 +51,9 @@ class HomeView extends StatelessWidget {
                     final meme = memesController.filteredMemes[index];
                     return InkWell(
                       onTap: () {
-                        Get.to(() => ImageEditorScreen(
+                        Get.to(() => MemesDetailsView(
                               memes: meme,
-                              onBack: () {
-                                final controller =
-                                    Get.find<ImageEditorController>();
-                                controller
-                                    .clearImage(); // Clear the image when navigating back
-                                Get.delete<ImageEditorController>();
-                              },
+
                             ));
                       },
                       child: Card(
