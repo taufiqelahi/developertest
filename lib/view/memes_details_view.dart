@@ -20,8 +20,8 @@ class MemesDetailsView extends StatelessWidget {
           leading: IconButton(
             icon: const Icon(Icons.arrow_back),
             onPressed: () {
-              controller.clearImage(); // Call the callback to clear the image
-              Get.back(); // Go back to the previous screen
+              controller.clearImage();
+              Get.back();
             },
           ),
         title: Label(text: memes.name!)

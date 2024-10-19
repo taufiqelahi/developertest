@@ -43,8 +43,7 @@ class HomeView extends StatelessWidget {
                   crossAxisSpacing: 8,
                   itemCount: memesController.filteredMemes.length,
                   gridDelegate: const SliverSimpleGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3, // Number of columns
-                    // Spacing between columns
+                    crossAxisCount: 3,
                   ),
                   itemBuilder: (context, index) {
                     final meme = memesController.filteredMemes[index];
@@ -64,9 +63,9 @@ class HomeView extends StatelessWidget {
                                 ? Image.network(
                                     meme.url!,
                                     width: double
-                                        .infinity, // Use full width of the card
+                                        .infinity,
                                     height:
-                                        150, // Set a fixed height for the images
+                                        150,
                                     fit: BoxFit.cover,
                                   )
                                 : const Placeholder(
