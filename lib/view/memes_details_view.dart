@@ -40,7 +40,7 @@ class MemesDetailsView extends StatelessWidget {
                 onPressed: controller.imageFile.value != null
                     ? controller.cropImage
                     : null,
-                child: const Text('Crop'),
+                child: const Text('Crop and rotate'),
               ),
               const SizedBox(width: 10),
             ],
